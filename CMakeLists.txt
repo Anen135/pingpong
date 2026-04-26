@@ -7,7 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_executable(PingPong ${SOURCES})
+add_executable(PingPong ${SOURCES}
+    include/terminal.h
+    src/terminal.cpp)
 
 target_include_directories(PingPong PRIVATE include)
 

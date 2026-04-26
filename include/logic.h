@@ -23,7 +23,7 @@ short timedelay = 50;
 bool gameOver = false;
 
 
-Game(short width, short height, short ballX, short ballY, short paddleLeftY, short paddleRightY, short ballVelX, short ballVelY);
+Game(short ballX, short ballY, short paddleLeftY, short paddleRightY, short ballVelX, short ballVelY);
 Game();
 void logic();
 void gameLoop();
