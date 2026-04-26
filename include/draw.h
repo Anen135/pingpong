@@ -18,11 +18,3 @@
     cursorInfo.bVisible = FALSE;\
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);\
 }
-
-#define draw(width, height, ballX, ballY, paddleLeftY, paddleRightY) {\
-    drawBall(ballX, ballY);\
-    drawPaddle(1, paddleLeftY + 0);\
-    drawPaddle(width - 2, paddleRightY + 0);\
-    drawPaddle(1, paddleLeftY + 1);\
-    drawPaddle(width - 2, paddleRightY + 1);\
-}

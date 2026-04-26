@@ -37,13 +37,15 @@ void Game::logic() {
 }
 
 void Game::gameLoop() {
-    hideCursor();
+    hideCursor()
+    drawPaddle(1, paddleLeftY + 0)
+    drawPaddle(1, paddleLeftY + 1)
+    drawPaddle(width - 2, paddleRightY + 1)
+    drawPaddle(width - 2, paddleRightY + 0)
     while (!gameOver) {
         Terminal::getTerminalSize(width, height);
-        drawBorder(width, height);
-        // draw(width, height, ballX, ballY, paddleLeftY, paddleRightY);
+        drawBorder(width, height)
         Sleep(timedelay);
-        // clearFrame
         InputProvider::input();
 #ifdef DEBUG
         std::cout << "Ball: (" << ballX << ", " << ballY << ") | Paddles: (" << *InputProvider::paddleLeftY << ", " << *InputProvider::paddleRightY << ")" << std::endl;

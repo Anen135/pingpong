@@ -19,17 +19,13 @@ void InputProvider::input() {
             drawPaddle(1, *paddleLeftY + 1);
         }
         else if (key == 72 && *paddleRightY > 1) {
-            clearObject(*width - 2, *paddleRightY + 0);
             clearObject(*width - 2, *paddleRightY + 1);
             (*paddleRightY)--;
-            drawPaddle(*width - 2, *paddleRightY);
-            drawPaddle(*width - 2, *paddleRightY + 1);
+            drawPaddle(*width - 2, *paddleRightY + 0);
         }
         else if (key == 80 && *paddleRightY < *height - 3) {
             clearObject(*width - 2, *paddleRightY + 0);
-            clearObject(*width - 2, *paddleRightY + 1);
             (*paddleRightY)++;
-            drawPaddle(*width - 2, *paddleRightY);
             drawPaddle(*width - 2, *paddleRightY + 1);
         }
         else if (key == 27) *gameOver = true;   
