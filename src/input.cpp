@@ -4,6 +4,9 @@
 #include <conio.h>
 #include <iostream>
 
+static short minBound = 1;
+static short maxBound = 17;  // default, will be updated
+
 void InputProvider::input() {
     if (_kbhit()) {
         int key = _getch();
@@ -11,8 +14,13 @@ void InputProvider::input() {
         if (key == 27) *gameOver = true;
     }
 
+    // Update bounds based on current terminal height
+    if (height) {
+        maxBound = *height - 3;  // paddle is 2 units tall, leave 1 for border
+    }
+
     if (leftController) {
-        leftController->setBounds(paddleLeftY, height, paddleLeftY);
+        leftController->setBounds(&minBound, &maxBound, paddleLeftY);
         short dir = leftController->getMoveDirection();
         if (dir != 0) {
             clearObject(1, *paddleLeftY + (dir > 0 ? 0 : 1));
@@ -23,7 +31,7 @@ void InputProvider::input() {
     }
 
     if (rightController) {
-        rightController->setBounds(paddleRightY, height, paddleRightY);
+        rightController->setBounds(&minBound, &maxBound, paddleRightY);
         short dir = rightController->getMoveDirection();
         if (dir != 0) {
             clearObject(*width - 2, *paddleRightY + (dir > 0 ? 0 : 1));

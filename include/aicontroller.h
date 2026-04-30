@@ -23,16 +23,13 @@ public:
     }
 
     short getMoveDirection() override {
-        if (ballY == nullptr) return 0;
+        if (!ballY) return 0;
 
-        short top = *paddleY;
-        short bottom = *paddleY + 1;
-
-        if (*ballY > bottom && bottom < *maxY)
-            return 1;
-
-        if (*ballY < top && top > *minY)
-            return -1;
+        short nextBallY = *ballY + 1;
+        // Или просто сделайте зону остановки ИИ более строгой:
+        
+        if (*ballY < *paddleY) return -1;
+        if (*ballY > *paddleY) return 1; // Целимся всегда верхним краем в мяч
 
         return 0;
     }

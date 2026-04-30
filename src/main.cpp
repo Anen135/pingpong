@@ -3,6 +3,8 @@
 #include "aicontroller.h"
 #define TIMEDALAY 50
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     short width, height;
     Terminal::getTerminalSize(width, height);
     Terminal::PrintStartScreen(width, height);
