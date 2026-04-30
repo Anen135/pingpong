@@ -1,5 +1,7 @@
 #include "logic.h"
 #include "terminal.h"
+#include "keyboardcontroller.h"
+#include "aicontroller.h"
 #include <iostream>
 
 Game::Game(short ballX, short ballY, short paddleLeftY, short paddleRightY, short ballVelX, short ballVelY)
@@ -15,6 +17,9 @@ Game::Game(short ballX, short ballY, short paddleLeftY, short paddleRightY, shor
     InputProvider::paddleRightY = &this->paddleRightY;
     InputProvider::height = &this->height;
     InputProvider::width = &this->width;
+    InputProvider::ballY = &this->ballY;
+    InputProvider::leftController = leftController;
+    InputProvider::rightController = rightController;
 }
 
 Game::Game() {
@@ -24,6 +29,9 @@ Game::Game() {
     InputProvider::paddleRightY = &paddleRightY;
     InputProvider::height = &height;
     InputProvider::width = &width;
+    InputProvider::ballY = &ballY;
+    InputProvider::leftController = leftController;
+    InputProvider::rightController = rightController;
 }
 
 void Game::logic() {
@@ -37,6 +45,8 @@ void Game::logic() {
 }
 
 void Game::gameLoop() {
+    InputProvider::leftController = this->leftController;
+    InputProvider::rightController = this->rightController;
     hideCursor()
     drawPaddle(1, paddleLeftY + 0)
     drawPaddle(1, paddleLeftY + 1)

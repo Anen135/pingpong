@@ -18,3 +18,4 @@
     cursorInfo.bVisible = FALSE;\
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);\
 }
+
