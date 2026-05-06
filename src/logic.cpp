@@ -39,7 +39,7 @@ void Game::logic() {
     ballX += ballVelX;
     ballY += ballVelY;
     if (ballY <= 1 || ballY >= height - 2) REVERSE(ballVelY);
-    if ((ballX == 2 && (ballY == paddleLeftY || ballY == paddleLeftY + 1)) || (ballX == width - 3 && (ballY == paddleRightY || ballY == paddleRightY + 1))) REVERSE(ballVelX);
+    if ((ballX <= 2 && (ballY == paddleLeftY || ballY == paddleLeftY + 1)) || (ballX == width - 3 && (ballY == paddleRightY || ballY == paddleRightY + 1))) REVERSE(ballVelX);
     if (ballX <= 0 || ballX >= width - 1) { resetBall }
     drawBall(ballX, ballY)
 }

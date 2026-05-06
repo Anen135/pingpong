@@ -16,7 +16,7 @@ void InputProvider::input() {
 
     // Update bounds based on current terminal height
     if (height) {
-        maxBound = *height - 3;  // paddle is 2 units tall, leave 1 for border
+        maxBound = *height - 4;  // paddle is 2 units tall, leave 1 for border
     }
 
     if (leftController) {
