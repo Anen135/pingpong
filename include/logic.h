@@ -4,7 +4,7 @@
 #include "controller.h"
 #define REVERSE(X) (X *= -1)
 #define clearBall clearObject(ballX, ballY)
-#define resetBall { ballX = width / 2; ballY = rand() % (height - 1) + 1; REVERSE(ballVelX); }
+#define resetBall { ballX = width / 2; ballY = rand() % (height - 2) + 2; REVERSE(ballVelX); }
 #define clearPaddles {\
     clearObject(1, paddleLeftY + 0);\
     clearObject(width - 2, paddleRightY + 0);\

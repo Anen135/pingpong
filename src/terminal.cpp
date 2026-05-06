@@ -1,5 +1,5 @@
 #include "terminal.h"
-#define STARTSCREEN "Ping Pong v1.0"
+#define STARTSCREEN "Ping Pong v1.2"
 
 namespace Terminal {
     void getTerminalSize(short& columns, short& rows) {
